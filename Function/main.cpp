@@ -73,6 +73,11 @@ Point operator-(Point& a, Point& b) {
     return rez;
 }
 
+Point operator* (Point& a, Point& b) {
+    Point rez(a.GetX() * b.GetX(), a.GetY() * b.GetY());
+
+}
+
 Point operator+(Point& b, int a) // Point + int 
 {
     Point rez(b.GetX() + a, b.GetY() + a);
@@ -131,6 +136,8 @@ int main()
     x = a - b;
     x = 10 * a;
     x.Print();
+
+
   /*  x = --a;
     x.Print();*/
     /*
