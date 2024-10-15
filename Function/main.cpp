@@ -96,7 +96,16 @@ Point operator++(Point& obj, int) // a++
 
     return temp;
 }
-
+Point operator++(Point& obj, int) {
+    Point temp(obj.GetX(), obj.GetY());
+    obj.SetX(obj.GetX() - 10);
+    obj.SetY(obj.GetY() - 10);
+    return temp;
+}
+Point operator--(Point& obj) {
+    obj.SetX(obj.GetX() - 10);
+    obj.SetY(obj.GetY() - 10);
+}
 
 Point operator+=(Point& obj, int a)
 {
