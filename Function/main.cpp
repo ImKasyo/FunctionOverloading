@@ -49,6 +49,10 @@ public:
     {
         y = _y;
     }
+    Point(const Point& other) {
+        x = other.x;
+        y = other.y;
+    }
 };
 
 Point operator+(int a, Point& b) // int+ Point
@@ -63,9 +67,18 @@ Point operator-(int a, Point& b) {
     Point rez(a - b.GetX(), a - b.GetY());  
     return rez; 
 }
+
+Point operator- (Point& a, Point& b) {
+    Point rez(a.GetX() - b.GetX(), a.GetY() - b.GetY());
+}
+
 Point operator+(Point& b, int a) // Point + int 
 {
     Point rez(b.GetX() + a, b.GetY() + a);
+    return rez;
+}
+Point operator*(int a, Point& b) {
+    Point rez(a * b.GetX(), a * b.GetY());
     return rez;
 }
 Point operator++(Point& obj) // ++a
@@ -84,6 +97,7 @@ Point operator++(Point& obj, int) // a++
     return temp;
 }
 
+
 Point operator+=(Point& obj, int a)
 {
     obj.SetX(obj.GetX() + a);
@@ -99,6 +113,13 @@ int main()
     a.Print();
 
     //// -------------- реализовать необходимые перегрузки 
+
+    Point x = 100 - a;
+    x.Print();
+    Point b(3, 4);
+    x = a - b;
+    x = 10 * a;
+    x.Print();
 
     /*
     Point x = 100 - a;
