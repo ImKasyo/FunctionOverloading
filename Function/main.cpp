@@ -59,6 +59,10 @@ Point operator+(int a, Point& b) // int+ Point
     rez.SetY(a + b.GetY());
     return rez;
 }
+Point operator-(int a, Point& b) {
+    Point rez(a - b.GetX(), a - b.GetY());  
+    return rez; 
+}
 Point operator+(Point& b, int a) // Point + int 
 {
     Point rez(b.GetX() + a, b.GetY() + a);
