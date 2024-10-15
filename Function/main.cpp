@@ -75,7 +75,7 @@ Point operator-(Point& a, Point& b) {
 
 Point operator* (Point& a, Point& b) {
     Point rez(a.GetX() * b.GetX(), a.GetY() * b.GetY());
-
+    return rez;
 }
 
 Point operator+(Point& b, int a) // Point + int 
@@ -120,6 +120,18 @@ Point operator+=(Point& obj, int a)
     obj.SetY(obj.GetY() + a);
     return obj;
 }
+
+Point operator-=(Point& obj, int a) {
+    obj.SetX(obj.GetX() - a);
+    obj.SetY(obj.GetY() - a);
+    return obj;
+}
+
+Point operator*=(Point& obj, int a) {
+    obj.SetX(obj.GetX() * a);
+    obj.SetY(obj.GetY() * a);
+    return obj;
+}
 int main()
 {
     Point a(1, 2);
@@ -136,21 +148,14 @@ int main()
     x = a - b;
     x = 10 * a;
     x.Print();
-
-
-  /*  x = --a;
-    x.Print();*/
-    /*
-    Point x = 100 - a;
-    x = a - b;
-    x = 10 * a; // 10 * a.x, 10*a.y;
-    x = --a;
-    x = a--;
     x = a * b;
+    x.Print();
 
-    x+=10
-    x-=10
-    x*=10
-    */
-
+    x += 10;
+    x.Print();
+    x *= 3;
+    x.Print();
+    x -= 30;
+    x.Print();
+ 
 }
